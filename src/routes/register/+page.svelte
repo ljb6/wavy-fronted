@@ -73,7 +73,7 @@
         </form>
         <p class="text-center text-[#3A3A3A] text-sm mt-6">
             Already have an account? <a
-                href="#"
+                href="/login"
                 class="underline hover:text-black">Sign in</a
             >
         </p>

@@ -1,6 +1,13 @@
 <script>
+    import { loginUser } from "$lib/api";
+
     let email = "";
     let password = "";
+
+    async function handleLogin() {
+        const response = await loginUser(email, password);
+        console.log(response);
+    }
 </script>
 
 <main
@@ -54,6 +61,7 @@
             </div>
             <button
                 type="submit"
+                on:click={handleLogin}
                 class="w-full mt-4 px-6 py-3 bg-[#1A1A1A] text-white rounded-2xl shadow-md hover:bg-gradient-to-br from-[#1A1A1A] to-[#4D4D4D] transition cursor-pointer"
             >
                 Sign in

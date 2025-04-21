@@ -1,4 +1,5 @@
 <script>
+    import { goto } from "$app/navigation";
     import { registerUser } from "$lib/api";
 
     let name = "";
@@ -7,7 +8,11 @@
 
     async function handleRegister() {
         const response = await registerUser(name, email, password);
-        console.log(response);
+        if (response == 201) {
+            goto("/login");
+        } else {
+            // TODO: Lidar com erro
+        }
     }
 </script>
 

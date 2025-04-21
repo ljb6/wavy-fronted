@@ -6,6 +6,8 @@ export async function registerUser(name: string, email: string, password: string
         },
         body: JSON.stringify({ name, email, password })
     })
+    
+    console.log(resp.json())
 
-    return resp.json();
+    return resp.status;
 }

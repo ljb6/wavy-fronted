@@ -1,5 +1,14 @@
 <script>
-    // placeholder for future interactions
+    import { registerUser } from "$lib/api";
+
+    let name = "";
+    let email = "";
+    let password = "";
+
+    async function handleRegister() {
+        const response = await registerUser(name, email, password);
+        console.log(response);
+    }
 </script>
 
 <main
@@ -19,6 +28,7 @@
                 >
                 <input
                     type="text"
+                    bind:value={name}
                     id="name"
                     class="w-full px-4 py-2 border border-[#C4C4C4] rounded-xl focus:outline-none focus:ring-2 focus:ring-[#1A1A1A]"
                     required
@@ -30,6 +40,7 @@
                 >
                 <input
                     type="email"
+                    bind:value={email}
                     id="email"
                     class="w-full px-4 py-2 border border-[#C4C4C4] rounded-xl focus:outline-none focus:ring-2 focus:ring-[#1A1A1A]"
                     required
@@ -41,6 +52,7 @@
                 >
                 <input
                     type="password"
+                    bind:value={password}
                     id="password"
                     class="w-full px-4 py-2 border border-[#C4C4C4] rounded-xl focus:outline-none focus:ring-2 focus:ring-[#1A1A1A]"
                     required
@@ -48,6 +60,7 @@
             </div>
             <button
                 type="submit"
+                on:click={handleRegister}
                 class="w-full mt-4 px-6 py-3 bg-[#1A1A1A] text-white rounded-2xl shadow-md hover:bg-gradient-to-br from-[#1A1A1A] to-[#4D4D4D] transition cursor-pointer"
             >
                 Sign up

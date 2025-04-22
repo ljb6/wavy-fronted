@@ -1,4 +1,5 @@
 <script>
+    import { goto } from "$app/navigation";
     import { loginUser } from "$lib/api";
 
     let email = "";
@@ -7,6 +8,8 @@
     async function handleLogin() {
         const response = await loginUser(email, password);
         console.log(response);
+        if (response == 200) goto("/dashboard")
+        //TODO: adicionar tratmento de erro
     }
 </script>
 

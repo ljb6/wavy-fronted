@@ -1,5 +1,5 @@
 <script>
-    // You can import data or actions here later
+    export let data;
 </script>
 
 <div
@@ -60,9 +60,9 @@
 
     <!-- Main content -->
     <main class="ml-[17rem] w-full p-10 overflow-y-auto">
-        <h1 class="text-3xl font-bold mb-6">Welcome!</h1>
+        <h1 class="text-3xl font-bold mb-6">Welcome, {data.user.name}!</h1>
         <p class="text-lg mb-10 max-w-xl">
-            You can get creative here — in the future, I’ll add what I need.
+            Here is a brief view of your business.
         </p>
 
         <!-- Reserved content space -->

@@ -8,4 +8,7 @@ export async function load({ fetch }) {
 	if (res.status === 401) {
 		throw redirect(302, '/login');
 	}
+
+    const user = await res.json();
+    return { user };
 }

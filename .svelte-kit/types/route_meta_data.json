@@ -1,5 +1,8 @@
 {
 	"/": [],
+	"/dashboard": [
+		"src/routes/dashboard/+page.ts"
+	],
 	"/login": [],
 	"/register": []
 }

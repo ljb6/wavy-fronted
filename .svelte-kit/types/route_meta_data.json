@@ -3,6 +3,9 @@
 	"/dashboard": [
 		"src/routes/dashboard/+page.ts"
 	],
+	"/dashboard/settings": [
+		"src/routes/dashboard/settings/+page.ts"
+	],
 	"/login": [],
 	"/register": []
 }

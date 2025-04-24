@@ -1,5 +1,5 @@
 <script>
-    import { goto } from '$app/navigation';
+    import { goto } from "$app/navigation";
 
     export let data;
 
@@ -10,7 +10,6 @@
     function logout() {
         alert("Logging out...");
     }
-
 </script>
 
 <main
@@ -43,7 +42,7 @@
             <div class="flex gap-3">
                 <a
                     href="/dashboard"
-                    class="cursor-pointer w-full py-2 px-4 bg-[#F5F5F5] text-[#1A1A1A] border border-[#C4C4C4] rounded-xl hover:bg-[#E0E0E0] transition"
+                    class="cursor-pointer w-full py-2 px-4 bg-[#F0F0F0] text-[#1A1A1A] rounded-lg border border-[#C4C4C4] hover:bg-[#E4E4E4] transition flex items-center justify-center"
                 >
                     Back
                 </a>

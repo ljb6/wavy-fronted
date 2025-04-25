@@ -10,8 +10,8 @@
       <a href="#" class="hover:underline cursor-pointer">Product</a>
       <a href="#" class="hover:underline cursor-pointer">Enterprise</a>
       <a href="#" class="hover:underline cursor-pointer">Pricing</a>
-      <a href="#" class="text-[#3A3A3A] hover:underline cursor-pointer">Sign in</a>
-      <a href="#" class="px-4 py-2 bg-[#1A1A1A] text-white rounded-xl hover:bg-gradient-to-br from-[#1A1A1A] to-[#4D4D4D] transition cursor-pointer">Get started</a>
+      <a href="/login" class="text-[#3A3A3A] hover:underline cursor-pointer">Sign in</a>
+      <a href="/register" class="px-4 py-2 bg-[#1A1A1A] text-white rounded-xl hover:bg-gradient-to-br from-[#1A1A1A] to-[#4D4D4D] transition cursor-pointer">Get started</a>
     </nav>
   </header>
   

@@ -1,13 +1,11 @@
 <script>
     import { goto } from "$app/navigation";
-    import { logoutUser } from "$lib/api.js";
+    import { changePassword, logoutUser } from "$lib/api.js";
 
     let { data } = $props();
     let loggingOut = $state(false);
-
-    function changePassword() {
-        alert("Redirecting to password change...");
-    }
+    let currentPassword = $state("");
+    let newPassword = $state("");
 
     async function handleLogout() {
         loggingOut = true;
@@ -18,6 +16,12 @@
         }, 500);
         console.log(response);
     }
+
+    async function handleChangePassword() {
+        const response = await changePassword(currentPassword, newPassword);
+        console.log(response);
+    }
+
 </script>
 
 <main
@@ -39,9 +43,32 @@
             <p class="text-[#3A3A3A] mb-4">{data.user.plan}</p>
         </div>
 
+        <div class="space-y-4">
+            <div>
+                <label for="current-password" class="block font-medium mb-1">Current Password</label>
+                <input
+                    id="current-password"
+                    type="password"
+                    class="w-full px-4 py-2 border border-[#C4C4C4] rounded-lg bg-[#F9F9F9] focus:outline-none focus:ring-2 focus:ring-[#1A1A1A]"
+                    bind:value={currentPassword}
+                />
+            </div>
+
+            <div>
+                <label for="new-password" class="block font-medium mb-1">New Password</label>
+                <input
+                    id="new-password"
+                    type="password"
+                    class="w-full px-4 py-2 border border-[#C4C4C4] rounded-lg bg-[#F9F9F9] focus:outline-none focus:ring-2 focus:ring-[#1A1A1A]"
+                    bind:value={newPassword}
+                />
+            </div>
+        </div>
+
         <div class="space-y-3 pt-4">
             <button
                 class="cursor-pointer w-full py-2 px-4 bg-[#1A1A1A] text-white rounded-xl hover:bg-[#333] transition"
+                onclick={handleChangePassword}
             >
                 Change Password
             </button>
@@ -77,3 +104,4 @@
         margin: 0;
     }
 </style>
+

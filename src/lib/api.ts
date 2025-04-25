@@ -40,3 +40,18 @@ export async function logoutUser() {
 
     return resp.status;
 }
+
+export async function changePassword(password: string, new_password: string) {
+    const resp = await fetch("http://localhost:8080/private/auth/changepassword", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ password, new_password }),
+        credentials: "include"
+    })
+    
+    console.log(resp.json())
+
+    return resp.status;
+}

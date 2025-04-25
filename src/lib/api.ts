@@ -26,3 +26,17 @@ export async function loginUser(email: string, password: string) {
 
     return resp.status;
 }
+
+export async function logoutUser() {
+    const resp = await fetch("http://localhost:8080/private/auth/logout", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        credentials: "include"
+    })
+    
+    console.log(resp.json())
+
+    return resp.status;
+}

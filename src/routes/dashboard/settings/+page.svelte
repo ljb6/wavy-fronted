@@ -1,14 +1,22 @@
 <script>
     import { goto } from "$app/navigation";
+    import { logoutUser } from "$lib/api.js";
 
-    export let data;
+    let { data } = $props();
+    let loggingOut = $state(false);
 
     function changePassword() {
         alert("Redirecting to password change...");
     }
 
-    function logout() {
-        alert("Logging out...");
+    async function handleLogout() {
+        loggingOut = true;
+        const response = await logoutUser();
+        console.log(response);
+        setTimeout(() => {
+            goto("/");
+        }, 500);
+        console.log(response);
     }
 </script>
 
@@ -33,7 +41,6 @@
 
         <div class="space-y-3 pt-4">
             <button
-                on:click={changePassword}
                 class="cursor-pointer w-full py-2 px-4 bg-[#1A1A1A] text-white rounded-xl hover:bg-[#333] transition"
             >
                 Change Password
@@ -48,10 +55,14 @@
                 </a>
 
                 <button
-                    on:click={logout}
+                    onclick={handleLogout}
                     class="cursor-pointer w-full py-2 px-4 bg-[#F5F5F5] text-[#1A1A1A] border border-[#C4C4C4] rounded-xl hover:bg-[#E0E0E0] transition"
                 >
-                    Log Out
+                    {#if loggingOut}
+                        Logging out...
+                    {:else}
+                        Logout
+                    {/if}
                 </button>
             </div>
         </div>

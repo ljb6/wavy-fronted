@@ -38,7 +38,7 @@
                     >Dashboard</a
                 >
                 <a
-                    href="#"
+                    href="/dashboard/database"
                     class="block py-2 px-4 rounded-lg hover:bg-[#F0F0F0]"
                     >Database</a
                 >

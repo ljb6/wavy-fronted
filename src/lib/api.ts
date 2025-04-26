@@ -88,5 +88,17 @@ export async function getSubscribers() {
 
     const data = await res.json();
     console.log(data);
-    return data; // já devolve só o array
+    return data; 
+}
+
+export async function clearSubscribers() {
+    const res = await fetch("http://localhost:8080/private/database/clearsubs", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        credentials: "include"
+    });
+    
+    return res; 
 }

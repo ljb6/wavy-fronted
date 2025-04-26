@@ -70,3 +70,23 @@ export async function addSubscriberManually(name: string, email: string) {
 
     return resp.status;
 }
+
+export async function getSubscribers() {
+    const res = await fetch("http://localhost:8080/private/database/getsubs", {
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        credentials: "include"
+    });
+
+    if (!res.ok) {
+        throw new Error('Failed to fetch subscribers');
+    }
+
+    console.log(res);
+
+    const data = await res.json();
+    console.log(data);
+    return data; // já devolve só o array
+}

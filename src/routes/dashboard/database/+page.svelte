@@ -1,7 +1,15 @@
-<script>
-    import { addSubscriberManually } from "$lib/api";
+<script lang="ts">
+    import { goto } from "$app/navigation";
 
-    let { data } = $props();
+
+    import { addSubscriberManually, getSubscribers } from "$lib/api";
+    import { onMount } from "svelte";
+
+    type Subscriber = {
+        ID: number;
+        Name: string;
+        Email: string;
+    };
 
     let subName = $state("");
     let subEmail = $state("");
@@ -9,7 +17,19 @@
     async function handleAddSubForm() {
         const response = await addSubscriberManually(subName, subEmail);
         console.log(response);
+        goto("/dashboard").then(() => goto("/dashboard/database"));
     }
+
+    let subscribers: Subscriber[] = $state([]);
+
+    onMount(async () => {
+        try {
+            subscribers = await getSubscribers();
+        } catch (error) {
+            console.error(error);
+        }
+    });
+
 </script>
 
 <div
@@ -107,7 +127,7 @@
             <div
                 class="bg-white border border-[#C4C4C4] rounded-2xl shadow flex flex-col items-center justify-center p-6"
             >
-                <p class="text-3xl font-bold">0</p>
+                <p class="text-3xl font-bold">{subscribers.length}</p>
                 <p class="text-sm text-[#555]">Total Subscribers</p>
             </div>
             <!-- Functions -->
@@ -141,17 +161,17 @@
             <table class="w-full text-left">
                 <thead>
                     <tr class="border-b border-[#E0E0E0]">
-                        <th class="pb-4">ID</th>
+                        <th class="pb-4">Ref-ID</th>
                         <th class="pb-4">Name</th>
                         <th class="pb-4">Email</th>
                     </tr>
                 </thead>
                 <tbody>
-                    {#each data.subscribers as subscriber}
+                    {#each subscribers as subscriber}
                         <tr class="border-b border-[#F0F0F0]">
-                            <td class="py-3">{subscriber.id}</td>
-                            <td class="py-3">{subscriber.name}</td>
-                            <td class="py-3">{subscriber.email}</td>
+                            <td class="py-3">{subscriber.ID}</td>
+                            <td class="py-3">{subscriber.Name}</td>
+                            <td class="py-3">{subscriber.Email}</td>
                         </tr>
                     {/each}
                 </tbody>

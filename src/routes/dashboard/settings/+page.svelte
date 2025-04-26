@@ -47,6 +47,7 @@
             <div>
                 <label for="current-password" class="block font-medium mb-1">Current Password</label>
                 <input
+                    placeholder="••••••••••"
                     id="current-password"
                     type="password"
                     class="w-full px-4 py-2 border border-[#C4C4C4] rounded-lg bg-[#F9F9F9] focus:outline-none focus:ring-2 focus:ring-[#1A1A1A]"

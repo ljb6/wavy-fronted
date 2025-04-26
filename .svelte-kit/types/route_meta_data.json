@@ -3,7 +3,9 @@
 	"/dashboard": [
 		"src/routes/dashboard/+page.ts"
 	],
-	"/dashboard/database": [],
+	"/dashboard/database": [
+		"src/routes/dashboard/database/+page.ts"
+	],
 	"/dashboard/settings": [
 		"src/routes/dashboard/settings/+page.ts"
 	],

@@ -55,3 +55,18 @@ export async function changePassword(password: string, new_password: string) {
 
     return resp.status;
 }
+
+export async function addSubscriberManually(name: string, email: string) {
+    const resp = await fetch("http://localhost:8080/private/database/addsub", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ name, email }),
+        credentials: "include"
+    })
+    
+    console.log(resp.json())
+
+    return resp.status;
+}

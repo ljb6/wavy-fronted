@@ -1,16 +1,14 @@
 <script>
-    export let data;
+    import { addSubscriberManually } from "$lib/api";
 
-    let nameFilter = "";
-    let emailFilter = "";
+    let { data } = $props();
 
-    function clearFilters() {
-        nameFilter = "";
-        emailFilter = "";
-    }
+    let subName = $state("");
+    let subEmail = $state("");
 
-    function addSubscriber() {
-        alert("Add subscriber clicked!");
+    async function handleAddSubForm() {
+        const response = await addSubscriberManually(subName, subEmail);
+        console.log(response);
     }
 </script>
 
@@ -49,12 +47,12 @@
                     >Dashboard</a
                 >
                 <a
-                    href="#"
+                    href="/"
                     class="block py-2 px-4 rounded-lg hover:bg-[#F0F0F0]"
                     >Database</a
                 >
                 <a
-                    href="#"
+                    href="/"
                     class="block py-2 px-4 rounded-lg hover:bg-[#F0F0F0]"
                     >Management</a
                 >
@@ -75,40 +73,41 @@
         <!-- Top Section -->
         <div class="grid grid-cols-3 gap-6 w-full mb-10">
             <!-- Add sub -->
-            <div class="bg-white border border-[#C4C4C4] rounded-2xl shadow p-6 flex items-center gap-4">
+            <div
+                class="bg-white border border-[#C4C4C4] rounded-2xl shadow p-6 flex items-center gap-4"
+            >
                 <div class="flex flex-col gap-4 flex-1">
                     <div class="flex items-center gap-2">
                         <input
+                            bind:value={subName}
                             type="text"
-                            bind:value={nameFilter}
                             placeholder="Name"
                             class="flex-1 px-4 py-2 border border-[#DCDCDC] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#999]"
                         />
                     </div>
-                
+
                     <div class="flex items-center gap-2">
                         <input
+                            bind:value={subEmail}
                             type="text"
-                            bind:value={emailFilter}
                             placeholder="Email"
                             class="flex-1 px-4 py-2 border border-[#DCDCDC] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#999]"
                         />
                     </div>
                 </div>
                 <button
-                    on:click={clearFilters}
                     class="w-12 h-full bg-[#1A1A1A] text-white rounded-lg hover:bg-[#333] transition flex items-center justify-center text-xl"
+                    onclick={handleAddSubForm}
                 >
                     +
                 </button>
             </div>
-            
-            
+
             <!-- Subs counter -->
             <div
                 class="bg-white border border-[#C4C4C4] rounded-2xl shadow flex flex-col items-center justify-center p-6"
             >
-                <p class="text-3xl font-bold">{data.totalSubscribers}</p>
+                <p class="text-3xl font-bold">0</p>
                 <p class="text-sm text-[#555]">Total Subscribers</p>
             </div>
             <!-- Functions -->
@@ -116,7 +115,6 @@
                 class="bg-white border border-[#C4C4C4] rounded-2xl shadow p-6 flex flex-col gap-4"
             >
                 <button
-                    on:click={clearFilters}
                     class="w-full py-2 px-4 bg-[#1A1A1A] text-white rounded-lg hover:bg-[#333] transition"
                 >
                     Clear data

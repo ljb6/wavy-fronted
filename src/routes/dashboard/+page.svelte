@@ -5,6 +5,7 @@
 <div
     class="flex min-h-screen bg-gradient-to-br from-[#F7F7F7] to-[#EDEDED] text-[#1A1A1A] font-sans"
 >
+
     <!-- Sidebar -->
     <aside
         class="fixed top-6 left-6 bottom-6 w-64 bg-white border border-[#C4C4C4] rounded-2xl p-6 flex flex-col justify-between shadow-md"

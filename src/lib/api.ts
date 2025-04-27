@@ -83,7 +83,7 @@ export async function getSubscribers() {
 
 export async function clearSubs() {
     const res = await fetch("http://localhost:8080/private/database/clearsubs", {
-        method: "GET",
+        method: "POST",
         headers: {
             "Content-Type": "application/json",
         },

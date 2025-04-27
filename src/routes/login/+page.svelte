@@ -8,7 +8,7 @@
     async function handleLogin() {
         const response = await loginUser(email, password);
         console.log(response);
-        if (response == 200) goto("/dashboard")
+        if (response == 200) goto("/dashboard");
         //TODO: adicionar tratmento de erro
     }
 </script>

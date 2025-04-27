@@ -7,8 +7,6 @@ export async function registerUser(name: string, email: string, password: string
         body: JSON.stringify({ name, email, password })
     })
     
-    console.log(resp.json())
-
     return resp.status;
 }
 
@@ -22,8 +20,6 @@ export async function loginUser(email: string, password: string) {
         credentials: "include"
     })
     
-    console.log(resp.json())
-
     return resp.status;
 }
 
@@ -35,8 +31,6 @@ export async function logoutUser() {
         },
         credentials: "include"
     })
-    
-    console.log(resp.json())
 
     return resp.status;
 }
@@ -50,8 +44,6 @@ export async function changePassword(password: string, new_password: string) {
         body: JSON.stringify({ password, new_password }),
         credentials: "include"
     })
-    
-    console.log(resp.json())
 
     return resp.status;
 }
@@ -65,8 +57,6 @@ export async function addSubscriberManually(name: string, email: string) {
         body: JSON.stringify({ name, email }),
         credentials: "include"
     })
-    
-    console.log(resp.json())
 
     return resp.status;
 }
@@ -88,5 +78,22 @@ export async function getSubscribers() {
 
     const data = await res.json();
     console.log(data);
-    return data; // já devolve só o array
+    return data;
+}
+
+export async function clearSubs() {
+    const res = await fetch("http://localhost:8080/private/database/clearsubs", {
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        credentials: "include"
+    });
+
+    if (!res.ok) {
+        throw new Error('Failed to clear subscribers');
+    }
+
+    const data = await res.json();
+    return data;
 }

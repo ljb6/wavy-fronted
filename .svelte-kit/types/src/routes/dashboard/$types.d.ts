@@ -17,10 +17,10 @@ type LayoutParams = RouteParams & {  }
 type LayoutParentData = EnsureDefined<import('../$types.js').LayoutData>;
 
 export type PageServerData = null;
-export type PageLoad<OutputData extends OutputDataShape<PageParentData> = OutputDataShape<PageParentData>> = Kit.Load<RouteParams, PageServerData, PageParentData, OutputData, RouteId>;
-export type PageLoadEvent = Parameters<PageLoad>[0];
-export type PageData = Expand<Omit<PageParentData, keyof Kit.LoadProperties<Awaited<ReturnType<typeof import('../../../../../src/routes/dashboard/+page.js').load>>>> & OptionalUnion<EnsureDefined<Kit.LoadProperties<Awaited<ReturnType<typeof import('../../../../../src/routes/dashboard/+page.js').load>>>>>>;
+export type PageData = Expand<PageParentData>;
 export type PageProps = { data: PageData }
 export type LayoutServerData = null;
-export type LayoutData = Expand<LayoutParentData>;
+export type LayoutLoad<OutputData extends OutputDataShape<LayoutParentData> = OutputDataShape<LayoutParentData>> = Kit.Load<LayoutParams, LayoutServerData, LayoutParentData, OutputData, LayoutRouteId>;
+export type LayoutLoadEvent = Parameters<LayoutLoad>[0];
+export type LayoutData = Expand<Omit<LayoutParentData, keyof Kit.LoadProperties<Awaited<ReturnType<typeof import('../../../../../src/routes/dashboard/+layout.js').load>>>> & OptionalUnion<EnsureDefined<Kit.LoadProperties<Awaited<ReturnType<typeof import('../../../../../src/routes/dashboard/+layout.js').load>>>>>>;
 export type LayoutProps = { data: LayoutData; children: import("svelte").Snippet }

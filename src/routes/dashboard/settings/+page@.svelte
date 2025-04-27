@@ -1,11 +1,11 @@
-<script>
+<script lang="ts">
     import { goto } from "$app/navigation";
     import { changePassword, logoutUser } from "$lib/api.js";
 
     let { data } = $props();
-    let loggingOut = $state(false);
-    let currentPassword = $state("");
-    let newPassword = $state("");
+    let loggingOut: boolean = $state(false);
+    let currentPassword: string = $state("");
+    let newPassword: string = $state("");
 
     async function handleLogout() {
         loggingOut = true;

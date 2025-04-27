@@ -1,9 +1,9 @@
-<script>
+<script lang="ts">
     import { goto } from "$app/navigation";
     import { loginUser } from "$lib/api";
 
-    let email = "";
-    let password = "";
+    let email: string = $state("");
+    let password: string = $state("");
 
     async function handleLogin() {
         const response = await loginUser(email, password);
@@ -64,7 +64,7 @@
             </div>
             <button
                 type="submit"
-                on:click={handleLogin}
+                onclick={handleLogin}
                 class="w-full mt-4 px-6 py-3 bg-[#1A1A1A] text-white rounded-2xl shadow-md hover:bg-gradient-to-br from-[#1A1A1A] to-[#4D4D4D] transition cursor-pointer"
             >
                 Sign in

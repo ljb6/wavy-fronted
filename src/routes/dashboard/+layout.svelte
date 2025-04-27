@@ -37,7 +37,6 @@
             <a href="/" class="block py-2 px-4 rounded-lg hover:bg-[#F0F0F0]"
                 >Management</a
             >
-            <!-- Add more items as needed -->
         </nav>
     </div>
 

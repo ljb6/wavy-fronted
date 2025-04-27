@@ -1,10 +1,10 @@
-<script>
+<script lang="ts">
     import { goto } from "$app/navigation";
     import { registerUser } from "$lib/api";
 
-    let name = "";
-    let email = "";
-    let password = "";
+    let name: string = $state("");
+    let email: string = $state("");
+    let password: string = $state("");
 
     async function handleRegister() {
         const response = await registerUser(name, email, password);
@@ -38,7 +38,7 @@
             <img src="/logo.svg" alt="Logo" class="h-12 w-auto" />
         </div>
         <h1 class="text-3xl font-bold mb-6 text-center">Create your account</h1>
-        <form class="space-y-6" on:submit|preventDefault={handleRegister}>
+        <form class="space-y-6">
             <div>
                 <label for="name" class="block mb-2 font-medium"
                     >Full Name</label
@@ -76,6 +76,7 @@
                 />
             </div>
             <button
+                onclick="{handleRegister}"
                 type="submit"
                 class="w-full mt-4 px-6 py-3 bg-[#1A1A1A] text-white rounded-2xl shadow-md hover:bg-gradient-to-br from-[#1A1A1A] to-[#4D4D4D] transition cursor-pointer"
             >

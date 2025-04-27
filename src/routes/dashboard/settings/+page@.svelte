@@ -1,11 +1,11 @@
-<script>
+<script lang="ts">
     import { goto } from "$app/navigation";
     import { changePassword, logoutUser } from "$lib/api.js";
 
     let { data } = $props();
-    let loggingOut = $state(false);
-    let currentPassword = $state("");
-    let newPassword = $state("");
+    let loggingOut: boolean = $state(false);
+    let currentPassword: string = $state("");
+    let newPassword: string = $state("");
 
     async function handleLogout() {
         loggingOut = true;
@@ -21,7 +21,6 @@
         const response = await changePassword(currentPassword, newPassword);
         console.log(response);
     }
-
 </script>
 
 <main
@@ -45,7 +44,9 @@
 
         <div class="space-y-4">
             <div>
-                <label for="current-password" class="block font-medium mb-1">Current Password</label>
+                <label for="current-password" class="block font-medium mb-1"
+                    >Current Password</label
+                >
                 <input
                     placeholder="••••••••••"
                     id="current-password"
@@ -56,7 +57,9 @@
             </div>
 
             <div>
-                <label for="new-password" class="block font-medium mb-1">New Password</label>
+                <label for="new-password" class="block font-medium mb-1"
+                    >New Password</label
+                >
                 <input
                     id="new-password"
                     type="password"
@@ -105,4 +108,3 @@
         margin: 0;
     }
 </style>
-

@@ -1,3 +1,4 @@
+import { goto } from '$app/navigation';
 import { redirect } from '@sveltejs/kit';
 
 export async function load({ fetch }) {
@@ -7,8 +8,7 @@ export async function load({ fetch }) {
 
 	if (res.status === 401) {
 		throw redirect(302, '/login');
-	}
-
-    const user = await res.json();
-    return { user };
+	} else {
+        throw redirect(302, '/dashboard');
+    }
 }

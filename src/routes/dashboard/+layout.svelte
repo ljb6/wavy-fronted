@@ -19,11 +19,12 @@
             >
                 Create Email
             </button>
-            <button
-                class="cursor-pointer w-full py-2 px-4 bg-[#F0F0F0] text-[#1A1A1A] rounded-lg border border-[#C4C4C4] hover:bg-[#E4E4E4] transition"
+            <a
+                href="/dashboard"
+                class="cursor-pointer w-full py-2 px-4 bg-[#F0F0F0] text-[#1A1A1A] rounded-lg border border-[#C4C4C4] hover:bg-[#E4E4E4] transition flex items-center justify-center"
             >
                 Analytics
-            </button>
+            </a>
         </div>
 
         <!-- Menu -->

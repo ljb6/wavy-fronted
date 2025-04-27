@@ -1,7 +1,7 @@
 <script lang="ts">
     import { goto } from "$app/navigation";
 
-    import { addSubscriberManually, getSubscribers } from "$lib/api";
+    import { addSubscriberManually, clearSubs, getSubscribers } from "$lib/api";
     import { onMount } from "svelte";
 
     type Subscriber = {
@@ -16,6 +16,11 @@
     async function handleAddSubForm() {
         const response = await addSubscriberManually(subName, subEmail);
         console.log(response);
+        goto("/dashboard").then(() => goto("/dashboard/database"));
+    }
+
+    async function handleClearSubs() {
+        const response = await clearSubs();
         goto("/dashboard").then(() => goto("/dashboard/database"));
     }
 
@@ -80,6 +85,7 @@
                 class="bg-white border border-[#C4C4C4] rounded-2xl shadow p-6 flex flex-col gap-4"
             >
                 <button
+                    onclick="{handleClearSubs}"
                     class="w-full py-2 px-4 bg-[#1A1A1A] text-white rounded-lg hover:bg-[#333] transition"
                 >
                     Clear data

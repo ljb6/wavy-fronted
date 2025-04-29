@@ -98,13 +98,13 @@ export async function clearSubs() {
     return data;
 }
 
-export async function sendMail(subjet: string, body: string) {
+export async function sendMail(subject: string, body: string) {
     const res = await fetch("http://localhost:8080/private/mail/sendmail", {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
         },
-        body: JSON.stringify({ subjet, body }),
+        body: JSON.stringify({ subject, body }),
         credentials: "include"
     });
 

@@ -8,6 +8,9 @@
 		"src/routes/dashboard/database/+page.ts",
 		"src/routes/dashboard/+layout.ts"
 	],
+	"/dashboard/email": [
+		"src/routes/dashboard/+layout.ts"
+	],
 	"/dashboard/settings": [
 		"src/routes/dashboard/settings/+page.ts"
 	],

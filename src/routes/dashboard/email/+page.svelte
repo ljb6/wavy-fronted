@@ -1,6 +1,12 @@
 <script lang="ts">
-    let subject = '';
-    let message = '';
+    import { sendMail } from "$lib/api";
+
+    let subject = $state("");
+    let message = $state("");
+
+    async function sendMailHandler() {
+        const response = await sendMail(subject, message);
+    }
 </script>
 
 <div
@@ -34,6 +40,7 @@
             </div>
 
             <button
+                onclick="{sendMailHandler}"
                 class="px-6 py-3 bg-[#1A1A1A] text-white rounded-lg hover:bg-[#333] transition"
             >
                 Send

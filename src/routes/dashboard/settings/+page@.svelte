@@ -1,3 +1,17 @@
+<script lang="ts">
+    import { setUserSettings } from "$lib/api";
+
+    let host: string = $state("");
+    let port: number = $state(0);
+    let username: string = $state("");
+    let password: string = $state("");
+
+    async function handleSetSettings() {
+        const res = await setUserSettings(host, port, username, password);
+        console.log(res);
+    }
+</script>
+
 <main
     class="min-h-screen flex items-center justify-center bg-gradient-to-br from-[#F7F7F7] to-[#EDEDED] px-6 py-20 text-[#1A1A1A] font-sans"
 >
@@ -12,6 +26,7 @@
                     >Host</label
                 >
                 <input
+                    bind:value={host}
                     id="host"
                     type="text"
                     class="w-full px-4 py-2 border border-[#C4C4C4] rounded-lg bg-[#F9F9F9] focus:outline-none focus:ring-2 focus:ring-[#1A1A1A]"
@@ -23,6 +38,7 @@
                     >Port</label
                 >
                 <input
+                    bind:value={port}
                     id="port"
                     type="number"
                     class="w-full px-4 py-2 border border-[#C4C4C4] rounded-lg bg-[#F9F9F9] focus:outline-none focus:ring-2 focus:ring-[#1A1A1A]"
@@ -34,6 +50,7 @@
                     >Username</label
                 >
                 <input
+                    bind:value={username}
                     id="username"
                     type="text"
                     class="w-full px-4 py-2 border border-[#C4C4C4] rounded-lg bg-[#F9F9F9] focus:outline-none focus:ring-2 focus:ring-[#1A1A1A]"
@@ -45,6 +62,7 @@
                     >Password</label
                 >
                 <input
+                    bind:value={password}
                     id="password"
                     type="password"
                     class="w-full px-4 py-2 border border-[#C4C4C4] rounded-lg bg-[#F9F9F9] focus:outline-none focus:ring-2 focus:ring-[#1A1A1A]"
@@ -52,6 +70,7 @@
             </div>
 
             <button
+                onclick={handleSetSettings}
                 class="cursor-pointer w-full py-2 px-4 bg-[#1A1A1A] text-white rounded-lg hover:bg-[#333] transition"
             >
                 Confirm
@@ -70,6 +89,7 @@
         </div>
     </div>
 </main>
+
 <style>
     @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap");
 

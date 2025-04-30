@@ -4,7 +4,7 @@
     <div
         class="w-full max-w-md bg-white p-10 rounded-2xl shadow-md border border-[#C4C4C4] space-y-6"
     >
-        <h1 class="text-2xl font-bold text-center mb-4">Account Settings</h1>
+        <h1 class="text-2xl font-bold text-center mb-4">Email Settings</h1>
 
         <div class="space-y-4">
             <div>

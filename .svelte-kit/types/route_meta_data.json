@@ -4,13 +4,17 @@
 		"src/routes/dashboard/+layout.ts",
 		"src/routes/dashboard/+layout.ts"
 	],
+	"/dashboard/account": [
+		"src/routes/dashboard/account/+page.ts"
+	],
 	"/dashboard/database": [
 		"src/routes/dashboard/database/+page.ts",
 		"src/routes/dashboard/+layout.ts"
 	],
-	"/dashboard/settings": [
-		"src/routes/dashboard/settings/+page.ts"
+	"/dashboard/email": [
+		"src/routes/dashboard/+layout.ts"
 	],
+	"/dashboard/settings": [],
 	"/login": [
 		"src/routes/login/+page.ts"
 	],

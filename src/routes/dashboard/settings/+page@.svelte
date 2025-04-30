@@ -1,25 +1,14 @@
 <script lang="ts">
-    import { goto } from "$app/navigation";
-    import { changePassword, logoutUser } from "$lib/api.js";
+    import { setUserSettings } from "$lib/api";
 
-    let { data } = $props();
-    let loggingOut: boolean = $state(false);
-    let currentPassword: string = $state("");
-    let newPassword: string = $state("");
+    let host: string = $state("");
+    let port: number = $state(0);
+    let username: string = $state("");
+    let password: string = $state("");
 
-    async function handleLogout() {
-        loggingOut = true;
-        const response = await logoutUser();
-        console.log(response);
-        setTimeout(() => {
-            goto("/");
-        }, 500);
-        console.log(response);
-    }
-
-    async function handleChangePassword() {
-        const response = await changePassword(currentPassword, newPassword);
-        console.log(response);
+    async function handleSetSettings() {
+        const res = await setUserSettings(host, port, username, password);
+        console.log(res);
     }
 </script>
 
@@ -29,54 +18,73 @@
     <div
         class="w-full max-w-md bg-white p-10 rounded-2xl shadow-md border border-[#C4C4C4] space-y-6"
     >
-        <h1 class="text-2xl font-bold text-center mb-4">Account Settings</h1>
-
-        <div>
-            <p class="font-medium">Name</p>
-            <p class="text-[#3A3A3A] mb-4">{data.user.name}</p>
-
-            <p class="font-medium">Email</p>
-            <p class="text-[#3A3A3A] mb-4">{data.user.email}</p>
-
-            <p class="font-medium">Plan</p>
-            <p class="text-[#3A3A3A] mb-4">{data.user.plan}</p>
-        </div>
+        <h1 class="text-2xl font-bold text-center mb-4">Email Settings</h1>
 
         <div class="space-y-4">
             <div>
                 <label for="current-password" class="block font-medium mb-1"
-                    >Current Password</label
+                    >Host</label
                 >
                 <input
-                    placeholder="••••••••••"
-                    id="current-password"
-                    type="password"
-                    class="w-full px-4 py-2 border border-[#C4C4C4] rounded-lg bg-[#F9F9F9] focus:outline-none focus:ring-2 focus:ring-[#1A1A1A]"
-                    bind:value={currentPassword}
+                    bind:value={host}
+                    placeholder="e.g. smtp.gmail.com"
+                    id="host"
+                    type="text"
+                    class="w-full px-4 py-2 border placeholder-gray-300 border-[#C4C4C4] rounded-lg bg-[#F9F9F9] focus:outline-none focus:ring-2 focus:ring-[#1A1A1A]"
                 />
             </div>
 
             <div>
                 <label for="new-password" class="block font-medium mb-1"
-                    >New Password</label
+                    >Port</label
                 >
                 <input
-                    id="new-password"
-                    type="password"
-                    class="w-full px-4 py-2 border border-[#C4C4C4] rounded-lg bg-[#F9F9F9] focus:outline-none focus:ring-2 focus:ring-[#1A1A1A]"
-                    bind:value={newPassword}
+                    bind:value={port}
+                    placeholder="e.g. 587"
+                    id="port"
+                    type="number"
+                    class="w-full px-4 py-2 border placeholder-gray-300 border-[#C4C4C4] rounded-lg bg-[#F9F9F9] focus:outline-none focus:ring-2 focus:ring-[#1A1A1A]"
                 />
+            </div>
+
+            <div>
+                <label for="new-password" class="block font-medium mb-1"
+                    >Username</label
+                >
+                <input
+                    bind:value={username}
+                    placeholder="e.g. youruser@gmail.com"
+                    id="username"
+                    type="text"
+                    class="w-full px-4 py-2 border placeholder-gray-300 border-[#C4C4C4] rounded-lg bg-[#F9F9F9] focus:outline-none focus:ring-2 focus:ring-[#1A1A1A]"
+                />
+            </div>
+
+            <div>
+                <label for="new-password" class="block font-medium mb-1"
+                    >Password</label
+                >
+                <input
+                    bind:value={password}
+                    placeholder="e.g. mypassword1234"
+                    id="password"
+                    type="password"
+                    class="w-full px-4 py-2 border placeholder-gray-300 border-[#C4C4C4]  rounded-lg bg-[#F9F9F9] focus:outline-none focus:ring-2 focus:ring-[#1A1A1A]"
+                />
+            </div>
+
+            <div>
+                <button
+                    onclick={handleSetSettings}
+                    class="cursor-pointer w-full py-2 px-4 bg-[#1A1A1A] text-white rounded-lg hover:bg-[#333] transition"
+                >
+                    Confirm
+                </button>
+                <a href="/" class="text-gray-900 underline">How to set SMTP settings</a>
             </div>
         </div>
 
-        <div class="space-y-3 pt-4">
-            <button
-                class="cursor-pointer w-full py-2 px-4 bg-[#1A1A1A] text-white rounded-xl hover:bg-[#333] transition"
-                onclick={handleChangePassword}
-            >
-                Change Password
-            </button>
-
+        <div class="space-y-3 pt-2">
             <div class="flex gap-3">
                 <a
                     href="/dashboard"
@@ -84,17 +92,6 @@
                 >
                     Back
                 </a>
-
-                <button
-                    onclick={handleLogout}
-                    class="cursor-pointer w-full py-2 px-4 bg-[#F5F5F5] text-[#1A1A1A] border border-[#C4C4C4] rounded-xl hover:bg-[#E0E0E0] transition"
-                >
-                    {#if loggingOut}
-                        Logging out...
-                    {:else}
-                        Logout
-                    {/if}
-                </button>
             </div>
         </div>
     </div>

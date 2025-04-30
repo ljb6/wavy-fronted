@@ -97,3 +97,37 @@ export async function clearSubs() {
     const data = await res.json();
     return data;
 }
+
+export async function sendMail(subject: string, body: string) {
+    const res = await fetch("http://localhost:8080/private/mail/sendmail", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ subject, body }),
+        credentials: "include"
+    });
+
+    if (!res.ok) {
+        throw new Error('Failed to send mail');
+    }
+
+    console.log(res.json());
+}
+
+export async function setUserSettings(host: string, port: number, user: string, password: string) {
+    const res = await fetch("http://localhost:8080/private/database/setsettings", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ host, port, user, password }),
+        credentials: "include"
+    });
+
+    if (!res.ok) {
+        throw new Error('Failed to set user settings');
+    }
+
+    console.log(res.json());
+}

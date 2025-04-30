@@ -34,18 +34,18 @@
                 class="block py-2 px-4 rounded-lg hover:bg-[#F0F0F0]"
                 >Database</a
             >
-            <a href="/" class="block py-2 px-4 rounded-lg hover:bg-[#F0F0F0]"
-                >Management</a
+            <a href="/dashboard/settings" class="block py-2 px-4 rounded-lg hover:bg-[#F0F0F0]"
+                >Settings</a
             >
         </nav>
     </div>
 
     <!-- Settings Button -->
     <a
-        href="/dashboard/settings"
+        href="/dashboard/account"
         class="cursor-pointer w-full py-2 px-4 bg-[#F0F0F0] text-[#1A1A1A] rounded-lg border border-[#C4C4C4] hover:bg-[#E4E4E4] transition flex items-center justify-center"
     >
-        ⚙️ Settings
+        ⚙️ Account
     </a>
 </aside>
 

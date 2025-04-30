@@ -71,7 +71,7 @@
 
         <div class="space-y-3 pt-4">
             <button
-                class="cursor-pointer w-full py-2 px-4 bg-[#1A1A1A] text-white rounded-xl hover:bg-[#333] transition"
+                class="cursor-pointer w-full py-2 px-4 bg-[#1A1A1A] text-white rounded-lg hover:bg-[#333] transition"
                 onclick={handleChangePassword}
             >
                 Change Password
@@ -87,7 +87,7 @@
 
                 <button
                     onclick={handleLogout}
-                    class="cursor-pointer w-full py-2 px-4 bg-[#F5F5F5] text-[#1A1A1A] border border-[#C4C4C4] rounded-xl hover:bg-[#E0E0E0] transition"
+                    class="cursor-pointer w-full py-2 px-4 bg-[#F5F5F5] text-[#1A1A1A] border rounded-lg border-[#C4C4C4] hover:bg-[#E0E0E0] transition"
                 >
                     {#if loggingOut}
                         Logging out...

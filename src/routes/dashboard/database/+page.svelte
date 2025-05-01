@@ -66,7 +66,7 @@
                     </div>
                 </div>
                 <button
-                    class="w-12 h-full bg-[#1A1A1A] text-white rounded-lg hover:bg-[#333] transition flex items-center justify-center text-xl"
+                    class="cursor-pointer w-12 h-full bg-[#1A1A1A] text-white rounded-lg hover:bg-[#333] transition flex items-center justify-center text-xl"
                     onclick={handleAddSubForm}
                 >
                     +
@@ -77,8 +77,8 @@
             <div
                 class="bg-white border border-[#C4C4C4] rounded-2xl shadow flex flex-col items-center justify-center p-6"
             >
-                <p class="text-3xl font-bold">{subscribers.length}</p>
-                <p class="text-sm text-[#555]">Total Subscribers</p>
+                <p class="text-6xl font-bold">{subscribers.length}</p>
+                <p class="text-l text-[#555]">Total Subscribers</p>
             </div>
             <!-- Functions -->
             <div
@@ -86,18 +86,18 @@
             >
                 <button
                     onclick="{handleClearSubs}"
-                    class="w-full py-2 px-4 bg-[#1A1A1A] text-white rounded-lg hover:bg-[#333] transition"
+                    class="cursor-pointer w-full py-2 px-4 bg-[#1A1A1A] text-white rounded-lg hover:bg-[#333] transition"
                 >
                     Clear data
                 </button>
                 <div class="flex gap-4">
                     <button
-                        class="w-full py-2 px-4 bg-[#F0F0F0] text-[#1A1A1A] rounded-lg border border-[#C4C4C4] hover:bg-[#E4E4E4] transition"
+                        class="cursor-pointer w-full py-2 px-4 bg-[#F0F0F0] text-[#1A1A1A] rounded-lg border border-[#C4C4C4] hover:bg-[#E4E4E4] transition"
                     >
                         Import Data
                     </button>
                     <button
-                        class="w-full py-2 px-4 bg-[#F0F0F0] text-[#1A1A1A] rounded-lg border border-[#C4C4C4] hover:bg-[#E4E4E4] transition"
+                        class="cursor-pointer w-full py-2 px-4 bg-[#F0F0F0] text-[#1A1A1A] rounded-lg border border-[#C4C4C4] hover:bg-[#E4E4E4] transition"
                     >
                         Export Data
                     </button>

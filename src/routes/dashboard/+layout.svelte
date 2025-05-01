@@ -15,7 +15,7 @@
         <!-- Action Buttons -->
         <div class="space-y-3 mb-4">
             <a
-                href="/dashboard"
+                href="/dashboard/email"
                 class="cursor-pointer w-full py-2 px-4 bg-[#1A1A1A] text-white rounded-lg border border-[#C4C4C4] hover:bg-[#333] transition flex items-center justify-center"
             >
                 Create Email

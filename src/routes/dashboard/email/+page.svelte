@@ -41,7 +41,7 @@
 
             <button
                 onclick="{sendMailHandler}"
-                class="px-6 py-3 bg-[#1A1A1A] text-white rounded-lg hover:bg-[#333] transition"
+                class="cursor-pointer px-6 py-3 bg-[#1A1A1A] text-white rounded-lg hover:bg-[#333] transition"
             >
                 Send
             </button>

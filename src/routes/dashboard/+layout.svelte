@@ -14,11 +14,12 @@
 
         <!-- Action Buttons -->
         <div class="space-y-3 mb-4">
-            <button
-                class="cursor-pointer w-full py-2 px-4 bg-[#1A1A1A] text-white rounded-lg shadow hover:bg-[#333] transition"
+            <a
+                href="/dashboard"
+                class="cursor-pointer w-full py-2 px-4 bg-[#1A1A1A] text-white rounded-lg border border-[#C4C4C4] hover:bg-[#333] transition flex items-center justify-center"
             >
                 Create Email
-            </button>
+            </a>
             <a
                 href="/dashboard"
                 class="cursor-pointer w-full py-2 px-4 bg-[#F0F0F0] text-[#1A1A1A] rounded-lg border border-[#C4C4C4] hover:bg-[#E4E4E4] transition flex items-center justify-center"
@@ -34,7 +35,9 @@
                 class="block py-2 px-4 rounded-lg hover:bg-[#F0F0F0]"
                 >Database</a
             >
-            <a href="/dashboard/settings" class="block py-2 px-4 rounded-lg hover:bg-[#F0F0F0]"
+            <a
+                href="/dashboard/settings"
+                class="block py-2 px-4 rounded-lg hover:bg-[#F0F0F0]"
                 >Settings</a
             >
         </nav>

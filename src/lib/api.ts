@@ -115,13 +115,13 @@ export async function sendMail(subject: string, body: string) {
     console.log(res.json());
 }
 
-export async function setUserSettings(host: string, port: number, user: string, password: string) {
+export async function setUserSettings(host: string, port: number, username: string, smtp_key: string) {
     const res = await fetch("http://localhost:8080/private/database/setsettings", {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
         },
-        body: JSON.stringify({ host, port, user, password }),
+        body: JSON.stringify({ host, port, username, smtp_key }),
         credentials: "include"
     });
 

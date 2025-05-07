@@ -1,5 +1,12 @@
 <script lang="ts">
-    import { setUserSettings } from "$lib/api";
+    import { getUserSettings, setUserSettings } from "$lib/api";
+    import { onMount } from "svelte";
+
+    type Settings = {
+        host: string;
+        port: number;
+        username: string;
+    };
 
     let host: string = $state("");
     let port: number = $state(0);
@@ -10,6 +17,16 @@
         const res = await setUserSettings(host, port, username, password);
         console.log(res);
     }
+
+    let settings: Settings[] = $state([]);
+
+    onMount(async () => {
+        try {
+            settings = await getUserSettings();
+        } catch (error) {
+            console.error(error);
+        }
+    })
 </script>
 
 <main
@@ -26,7 +43,7 @@
                     >Host</label
                 >
                 <input
-                    bind:value={host}
+                    bind:value={settings.host}
                     placeholder="e.g. smtp.gmail.com"
                     id="host"
                     type="text"
@@ -39,7 +56,7 @@
                     >Port</label
                 >
                 <input
-                    bind:value={port}
+                    bind:value={settings.port}
                     placeholder="e.g. 587"
                     id="port"
                     type="number"
@@ -52,7 +69,7 @@
                     >Username</label
                 >
                 <input
-                    bind:value={username}
+                    bind:value={settings.username}
                     placeholder="e.g. youruser@gmail.com"
                     id="username"
                     type="text"
@@ -66,7 +83,7 @@
                 >
                 <input
                     bind:value={password}
-                    placeholder="e.g. mypassword1234"
+                    placeholder="•••••••••••••••••••"
                     id="password"
                     type="password"
                     class="w-full px-4 py-2 border placeholder-gray-300 border-[#C4C4C4]  rounded-lg bg-[#F9F9F9] focus:outline-none focus:ring-2 focus:ring-[#1A1A1A]"

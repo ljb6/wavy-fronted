@@ -131,3 +131,23 @@ export async function setUserSettings(host: string, port: number, username: stri
 
     console.log(res.json());
 }
+
+export async function getUserSettings() {
+    const res = await fetch("http://localhost:8080/private/database/getsettings", {
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        credentials: "include"
+    });
+
+    if (!res.ok) {
+        throw new Error('Failed to fetch settings');
+    }
+
+    console.log(res);
+
+    const data = await res.json();
+    console.log(data);
+    return data;
+}

@@ -45,7 +45,15 @@
             <!--                class="cursor-pointer w-full py-2 px-4 bg-[#F0F0F0] text-[#1A1A1A] rounded-lg border border-[#C4C4C4] hover:bg-[#E4E4E4] transition flex items-center justify-center"
 -->
 
-            
+            <button
+                onclick={() => {
+                    subject = "";
+                    message = "";
+                }}
+                class="ml-2 cursor-pointer px-6 py-3 border bg-white text-[#666] border-[#DCDCDC] rounded-lg hover:bg-[#F5F5F5] transition"
+            >
+                Clear
+            </button>
 
             <!-- Save -->
             <button

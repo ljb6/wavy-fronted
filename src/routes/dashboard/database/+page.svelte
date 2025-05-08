@@ -97,6 +97,7 @@
                         Import Data
                     </button>
                     <button
+                        onclick={() => window.location.href = "http://localhost:8080/private/database/download"}
                         class="cursor-pointer w-full py-2 px-4 bg-[#F0F0F0] text-[#1A1A1A] rounded-lg border border-[#C4C4C4] hover:bg-[#E4E4E4] transition"
                     >
                         Export Data

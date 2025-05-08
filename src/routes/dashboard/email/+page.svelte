@@ -18,7 +18,9 @@
             <h1 class="text-2xl font-bold">Create Email</h1>
 
             <div class="space-y-2">
-                <label for="subject" class="block text-sm font-medium">Subject</label>
+                <label for="subject" class="block text-sm font-medium"
+                    >Subject</label
+                >
                 <input
                     name="subject"
                     type="text"
@@ -29,7 +31,9 @@
             </div>
 
             <div class="space-y-2">
-                <label for="text" class="block text-sm font-medium">Message</label>
+                <label for="text" class="block text-sm font-medium"
+                    >Message</label
+                >
                 <textarea
                     name="text"
                     bind:value={message}
@@ -38,10 +42,21 @@
                     class="w-full px-4 py-3 border border-[#DCDCDC] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#999] resize-none bg-white"
                 ></textarea>
             </div>
+            <!--                class="cursor-pointer w-full py-2 px-4 bg-[#F0F0F0] text-[#1A1A1A] rounded-lg border border-[#C4C4C4] hover:bg-[#E4E4E4] transition flex items-center justify-center"
+-->
+
+            
+
+            <!-- Save -->
+            <button
+                class="ml-2 cursor-pointer px-6 py-3 border bg-[#1A1A1A] text-white border-[#1A1A1A] rounded-lg hover:bg-[#333] transition"
+            >
+                Save
+            </button>
 
             <button
-                onclick="{sendMailHandler}"
-                class="cursor-pointer px-6 py-3 bg-[#1A1A1A] text-white rounded-lg hover:bg-[#333] transition"
+                onclick={sendMailHandler}
+                class="ml-2 cursor-pointer px-6 py-3 bg-[#1A1A1A] text-white rounded-lg hover:bg-[#333] transition"
             >
                 Send
             </button>
